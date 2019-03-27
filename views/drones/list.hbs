@@ -1,0 +1,19 @@
+<h2>Available drones</h2>
+<h2>Available drones</h2>
+
+<ul>
+  {{!-- Recorremos todos los drones obtenidos del controlador --}}
+  {{#each drones}}
+    <li>
+      <strong>{{this.name}}</strong> - {{this.propellers}} propellers - {{this.maxSpeed}} m/s
+      <!-- Enlace que dirige al formulario de edición del dron -->
+      <a href="/drones/{{this._id}}/edit">Edit</a>
+      <!-- Pequeño formulario que permite eliminar el dron actual -->
+      <form action="/drones/{{this._id}}/delete" method="POST" style="display:inline">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/drones/create">Add a new drone</a> <!-- Enlace para ir al formulario de creación -->
